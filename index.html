@@ -205,6 +205,33 @@
     color: red;
 }
 
+.telegram-toggle2 {
+            position: fixed;
+            bottom: 15px;
+            right: 15px;
+            background-color: #0088cc;
+            color: #fff;
+            padding: 15px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            box-shadow: 0 4px 15px rgba(0, 136, 204, 0.5);
+            transition: background-color 0.3s, box-shadow 0.3s;
+        }
+
+        .telegram-toggle2:hover {
+            background-color: #007ab8;
+            box-shadow: 0 6px 20px rgba(0, 136, 204, 0.7);
+        }
+
+        .telegram-toggle2 img {
+            width: 24px;
+            height: 24px;
+            margin-right: 10px;
+        }
+
         
     </style>
 </head>
@@ -213,6 +240,10 @@
         <img src="https://img.icons8.com/?size=100&id=pDS8KM9GgIWU&format=png&color=000000" alt="Logo">
         <h2>Not_Sameer</h2>
     </header>
+
+    <a href="https://x.com/i_sam33r" target="_blank" class="telegram-toggle2">
+        <img src="https://x.com/favicon.ico" alt="twitter">
+        Follow Me on X </a>
 
     <div class="main-content">
         <div class="image-container">
@@ -238,5 +269,34 @@
             }
         }
     </script>
+    <script>
+        // Disable right-click
+        document.addEventListener('contextmenu', function (e) {
+            e.preventDefault();  // Disable right-click menu
+        });
+        
+        // Disable keyboard shortcuts (Ctrl+U, Ctrl+S)
+        document.addEventListener('keydown', function (e) {
+            // Disable Ctrl + U (View Source)
+            if (e.ctrlKey && (e.key === 'u' || e.key === 'U')) {
+                e.preventDefault();
+            }
+        
+            // Disable Ctrl + S (Save Page)
+            if (e.ctrlKey && (e.key === 's' || e.key === 'S')) {
+                e.preventDefault();
+            }
+        
+            // Disable F12 (Inspect Element / DevTools)
+            if (e.key === 'F12') {
+                e.preventDefault();
+            }
+        });
+        
+        // Disable selecting text
+        document.addEventListener('selectstart', function (e) {
+            e.preventDefault();  // Disable text selection
+        });
+        </script>
 </body>
 </html>

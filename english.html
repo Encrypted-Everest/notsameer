@@ -25,7 +25,8 @@
             align-items: center;
             min-height: 100vh;
             flex-direction: column;
-            overflow-x: hidden; /* Prevent horizontal scrolling */
+            overflow-x: hidden;
+            /* Prevent horizontal scrolling */
         }
 
         html {
@@ -189,15 +190,15 @@
         }
 
         .popup-content {
-    position: relative;
-    width: 90%;
-    height: 90%;
-    display: flex;
-    flex-direction: column;
-    background: #000;
-    border-radius: 10px;
-    overflow: hidden;
-}
+            position: relative;
+            width: 90%;
+            height: 90%;
+            display: flex;
+            flex-direction: column;
+            background: #000;
+            border-radius: 10px;
+            overflow: hidden;
+        }
 
         .popup-content iframe {
             flex: 1;
@@ -264,7 +265,8 @@
             }
 
             .mobile-menu {
-                display: none; /* Keep it hidden initially */
+                display: none;
+                /* Keep it hidden initially */
             }
 
             .container {
@@ -279,11 +281,9 @@
 
         .p-gref {
             font-size: 16px;
-           
+
             color: #a7ce1b;
         }
-
-        
     </style>
 </head>
 
@@ -292,6 +292,9 @@
         <h1>Not_Sameer</h1>
         <nav>
             <a href="/">Home</a>
+            <a href="./english.html">English</a>
+            <a href="./hindi.html">Hindi</a>
+            <a href="./korean.html">Korean</a>
             <a href="./contact.html" target="_blank">Contact</a>
             <a href="./policy.html">Policy</a>
             <a href="#dmca">DMCA</a>
@@ -303,9 +306,13 @@
         </div>
         <div class="mobile-menu" id="mobile-menu">
             <a href="/">Home</a>
+            <a href="./english.html">English L</a>
+            <a href="./hindi.html">Hindi</a>
+            <a href="./korean.html">Korean</a>
             <a href="./contact.html" target="_blank">Contact</a>
             <a href="./policy.html">Policy</a>
             <a href="#dmca">DMCA</a>
+            
         </div>
     </header>
 
@@ -314,11 +321,13 @@
         Follow Me on X </a>
 
     <div class="notice">
-        <p>🚨 Language: English + Hindi  |  Ensure a stable internet connection to avoid video lag. |  File Size: 20.8 GB🚨</p>
+        <p>🚨 Language: English + Hindi | Ensure a stable internet connection to avoid video lag. | File Size: 20.8 GB🚨
+        </p>
     </div>
 
     <div class="post" data-url="https://snowant327arh.com/pb/dHQxMDkxOTQyMC0xNzM1MzAxMjQ2OTk0">
-        <img src="https://dnm.nflximg.net/api/v6/2DuQlx0fM4wd1nzqm5BFBi6ILa8/AAAAQVylBzU37ZpOJaV_EWOfGm7R3S6KJxdwj1KUgk7YQNg_vr7mSCnXzWJ7OaLdgqhKCGX2qeyrkWINXY_FJfoeRCsaIylCBHtQczT5GSpoHv7i0L0xCcQtXN4O8mAwzQZQqeUCXyLtVuwjlz50PCU66aV1.jpg?r=0f1" alt="Squid Game S2">
+        <img src="https://dnm.nflximg.net/api/v6/2DuQlx0fM4wd1nzqm5BFBi6ILa8/AAAAQVylBzU37ZpOJaV_EWOfGm7R3S6KJxdwj1KUgk7YQNg_vr7mSCnXzWJ7OaLdgqhKCGX2qeyrkWINXY_FJfoeRCsaIylCBHtQczT5GSpoHv7i0L0xCcQtXN4O8mAwzQZQqeUCXyLtVuwjlz50PCU66aV1.jpg?r=0f1"
+            alt="Squid Game S2">
         <div class="post-title">Squid Game S1 + S2 - EPISODE 1 to 7 </div>
     </div>
 
@@ -334,7 +343,9 @@
     <div class="popup" id="popup">
         <div class="popup-content">
             <div class="popup-header">
-                <b><span>Ensure a stable internet connection to avoid video lag <br> Not working? |  Try out: <p class="p-gref"> <a href="./hindi.html" >Hindi</a> & <a href="./korean"> Korean</a> </p></span></b>
+                <b><span>Ensure a stable internet connection to avoid video lag <br> Not working? | Try out: <p
+                            class="p-gref"> <a href="./hindi.html">Hindi</a> & <a href="./korean"> Korean</a> </p>
+                        </span></b>
                 <span class="close" id="close-popup">&times;</span>
             </div>
             <iframe id="popup-video" allow="autoplay; encrypted-media" allowfullscreen></iframe>
@@ -379,6 +390,35 @@
             }
         });
     </script>
+    <script>
+        // Disable right-click
+        document.addEventListener('contextmenu', function (e) {
+            e.preventDefault();  // Disable right-click menu
+        });
+        
+        // Disable keyboard shortcuts (Ctrl+U, Ctrl+S)
+        document.addEventListener('keydown', function (e) {
+            // Disable Ctrl + U (View Source)
+            if (e.ctrlKey && (e.key === 'u' || e.key === 'U')) {
+                e.preventDefault();
+            }
+        
+            // Disable Ctrl + S (Save Page)
+            if (e.ctrlKey && (e.key === 's' || e.key === 'S')) {
+                e.preventDefault();
+            }
+        
+            // Disable F12 (Inspect Element / DevTools)
+            if (e.key === 'F12') {
+                e.preventDefault();
+            }
+        });
+        
+        // Disable selecting text
+        document.addEventListener('selectstart', function (e) {
+            e.preventDefault();  // Disable text selection
+        });
+        </script>
 </body>
 
 </html>
