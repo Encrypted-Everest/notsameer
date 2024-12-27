@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/x-icon"
+        href="https://img.icons8.com/?size=100&id=pDS8KM9GgIWU&format=png&color=000000">
+    <title>Sameer - Squid Games S2</title>
+    <style>
+        /* General Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #000;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            flex-direction: column;
+            overflow-x: hidden; /* Prevent horizontal scrolling */
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* Header Styles */
+        header {
+            background: #111;
+            color: #ff0000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.5);
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            width: 100%;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 24px;
+            text-transform: uppercase;
+        }
+
+        nav {
+            display: flex;
+            gap: 15px;
+        }
+
+        nav a {
+            font-size: 16px;
+            font-weight: bold;
+            color: #fff;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #ff0000;
+        }
+
+        /* Hamburger Menu (Mobile) */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background: #fff;
+        }
+
+        /* Mobile Navigation */
+        .mobile-menu {
+            display: none;
+            flex-direction: column;
+            background: #111;
+            position: absolute;
+            top: 60px;
+            right: 20px;
+            width: 200px;
+            border-radius: 5px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.5);
+        }
+
+        .mobile-menu a {
+            padding: 10px 20px;
+            border-bottom: 1px solid #222;
+            text-align: center;
+        }
+
+        .mobile-menu a:last-child {
+            border-bottom: none;
+        }
+
+        .mobile-menu a:hover {
+            background: #222;
+            color: #ff0000;
+        }
+
+        /* Telegram Button */
+        .telegram-toggle2 {
+            position: fixed;
+            bottom: 15px;
+            right: 15px;
+            background-color: #0088cc;
+            color: #fff;
+            padding: 15px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            box-shadow: 0 4px 15px rgba(0, 136, 204, 0.5);
+            transition: background-color 0.3s, box-shadow 0.3s;
+        }
+
+        .telegram-toggle2:hover {
+            background-color: #007ab8;
+            box-shadow: 0 6px 20px rgba(0, 136, 204, 0.7);
+        }
+
+        .telegram-toggle2 img {
+            width: 24px;
+            height: 24px;
+            margin-right: 10px;
+        }
+
+        /* Post Section */
+        .post {
+            background: #222;
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.2s ease;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.5);
+            cursor: pointer;
+            width: 100%;
+            max-width: 600px;
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .post img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .post-title {
+            padding: 10px;
+            text-align: center;
+            font-weight: bold;
+            font-size: 18px;
+            background: #111;
+            color: #ff0000;
+        }
+
+        /* Popup Styles */
+        .popup {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.95);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .popup-content {
+    position: relative;
+    width: 90%;
+    height: 90%;
+    display: flex;
+    flex-direction: column;
+    background: #000;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+        .popup-content iframe {
+            flex: 1;
+            border: none;
+        }
+
+        .popup-header {
+            padding: 15px;
+            background: #f21f1f;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 18px;
+        }
+
+        .popup-header .close {
+            font-size: 24px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        footer {
+            background: #111;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            width: 100%;
+        }
+
+        /* Notice Section */
+        .notice {
+            background-color: #000000;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            font-size: 18px;
+            font-weight: bold;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.5);
+            margin-bottom: 20px;
+            width: 100%;
+        }
+
+        .notice9 {
+            background-color: #b46820;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            font-size: 18px;
+            font-weight: bold;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.5);
+            margin-bottom: 20px;
+            width: 100%;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            nav {
+                display: none;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            .mobile-menu {
+                display: none; /* Keep it hidden initially */
+            }
+
+            .container {
+                grid-template-columns: 1fr;
+            }
+
+            .notice p,
+            .post-footer p {
+                font-size: 16px;
+            }
+        }
+
+        .p-gref {
+            font-size: 16px;
+           
+            color: #a7ce1b;
+        }
+
+        
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Not_Sameer</h1>
+        <nav>
+            <a href="/">Home</a>
+            <a href="./contact.html" target="_blank">Contact</a>
+            <a href="./policy.html">Policy</a>
+            <a href="#dmca">DMCA</a>
+        </nav>
+        <div class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <div class="mobile-menu" id="mobile-menu">
+            <a href="/">Home</a>
+            <a href="./contact.html" target="_blank">Contact</a>
+            <a href="./policy.html">Policy</a>
+            <a href="#dmca">DMCA</a>
+        </div>
+    </header>
+
+    <a href="https://x.com/i_sam33r" target="_blank" class="telegram-toggle2">
+        <img src="https://x.com/favicon.ico" alt="twitter">
+        Follow Me on X </a>
+
+    <div class="notice">
+        <p>🚨 Language: English + Hindi  |  Ensure a stable internet connection to avoid video lag. |  File Size: 20.8 GB🚨</p>
+    </div>
+
+    <div class="post" data-url="https://snowant327arh.com/pb/dHQxMDkxOTQyMC0xNzM1MzAxMjQ2OTk0">
+        <img src="https://dnm.nflximg.net/api/v6/2DuQlx0fM4wd1nzqm5BFBi6ILa8/AAAAQVylBzU37ZpOJaV_EWOfGm7R3S6KJxdwj1KUgk7YQNg_vr7mSCnXzWJ7OaLdgqhKCGX2qeyrkWINXY_FJfoeRCsaIylCBHtQczT5GSpoHv7i0L0xCcQtXN4O8mAwzQZQqeUCXyLtVuwjlz50PCU66aV1.jpg?r=0f1" alt="Squid Game S2">
+        <div class="post-title">Squid Game S2 - EPISODE 1 to 7 </div>
+    </div>
+
+    <div id="dmca" class="notice9">
+        <p>Dear VIPs,
+
+            Welcome to Squid Game Season 2! If you’re here to play DMCA, we surrender faster than a Tug-of-War team with
+            no strategy. Just email us at sameer@notsr.pg.dv, and we’ll “eliminate” the content.
+
+            No masks or creepy dolls needed.</p>
+    </div>
+
+    <div class="popup" id="popup">
+        <div class="popup-content">
+            <div class="popup-header">
+                <b><span>Ensure a stable internet connection to avoid video lag <br> Not working? |  Try out: <p class="p-gref"> <a href="./hindi.html" >Hindi</a> & <a href="./korean"> Korean</a> </p></span></b>
+                <span class="close" id="close-popup">&times;</span>
+            </div>
+            <iframe id="popup-video" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Sameer</p>
+    </footer>
+
+    <script>
+        // Hamburger menu toggle
+        const hamburger = document.getElementById('hamburger');
+        const mobileMenu = document.getElementById('mobile-menu');
+        hamburger.addEventListener('click', () => {
+            mobileMenu.style.display = mobileMenu.style.display === 'flex' ? 'none' : 'flex';
+        });
+
+        // Popup functionality
+        const posts = document.querySelectorAll('.post');
+        const popup = document.getElementById('popup');
+        const popupVideo = document.getElementById('popup-video');
+        const closePopup = document.getElementById('close-popup');
+
+        posts.forEach(post => {
+            post.addEventListener('click', () => {
+                const url = post.getAttribute('data-url');
+                popupVideo.src = url;
+                popup.style.display = 'flex';
+            });
+        });
+
+        closePopup.addEventListener('click', () => {
+            popup.style.display = 'none';
+            popupVideo.src = '';
+        });
+
+        popup.addEventListener('click', (e) => {
+            if (e.target === popup) {
+                popup.style.display = 'none';
+                popupVideo.src = '';
+            }
+        });
+    </script>
+</body>
+
+</html>
